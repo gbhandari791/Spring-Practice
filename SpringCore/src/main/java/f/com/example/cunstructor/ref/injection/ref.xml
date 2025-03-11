@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context.xsd">
+   
+   <bean class="f.com.example.cunstructor.ref.injection.B" name="obOfB1" c:varFrom="Varoable from obOfB1" />
+   <bean class="f.com.example.cunstructor.ref.injection.B" name="obOfB2" c:varFrom="Varoable from obOfB2" />
+   <bean class="f.com.example.cunstructor.ref.injection.B" name="obOfB3" c:varFrom="Varoable from obOfB3" />
+   
+   <!-- Using ref Tags -->
+   <bean class="f.com.example.cunstructor.ref.injection.A" name="obOfA1">
+   		<constructor-arg  value="Variable from obOfA" />
+   		<constructor-arg>
+   			<ref bean="obOfB1"/>
+   		</constructor-arg>
+   </bean>
+   
+   <!-- Using ref attribute -->
+   <bean class="f.com.example.cunstructor.ref.injection.A" name="obOfA2">
+   		<constructor-arg value="Variable from obOfA2" />
+   		<constructor-arg ref="obOfB2" />
+   </bean>
+   
+   <!-- Using c schema -->
+   <bean class="f.com.example.cunstructor.ref.injection.A" name="obOfA3" 
+   		c:varFrom="Variable From obOfA3"
+   		c:obOfB-ref="obOfB3" />
+   		
+   <!-- ref collection -->
+   <bean  class="f.com.example.cunstructor.ref.injection.A" name="obOfA4">
+   		<constructor-arg>
+   			<list>
+   				<ref bean="obOfB1"/>
+   				<ref bean="obOfB2"/>
+   				<ref bean="obOfB3"/>
+   			</list>
+   		</constructor-arg>
+   </bean>
+   		  
+</beans>

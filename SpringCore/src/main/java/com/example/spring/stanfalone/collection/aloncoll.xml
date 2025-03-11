@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context.xsd
+   http://www.springframework.org/schema/util
+   http://www.springframework.org/schema/util/spring-util.xsd">
+   
+   <util:list list-class="java.util.LinkedList" id="friendList">
+   		<value>Diksha</value>
+   		<value>Rutik</value>
+   		<value>Atish</value>
+   </util:list>
+   
+   <util:set set-class="java.util.HashSet" id="phone">
+   		<value>1234</value>
+   		<value>5678</value>
+   		<value>9101</value>
+   </util:set>
+   
+   <util:map map-class="java.util.TreeMap" id="ageOfFriends" >
+   		<entry key="Diksha" value="27" />
+   		<entry key="Rutik" value="22" />
+   		<entry key="Atish" value="23" />
+   </util:map>
+   
+   <util:properties id="mysql">
+   		<prop key="driver">com.mysql.jdbc.Driver</prop>
+   		<prop key="user">root</prop>
+   		<prop key="pass">root</prop>
+   		<prop key="url">jdbc:mysql://localhost:3306</prop>
+   </util:properties>
+   
+   <bean class="com.example.spring.stanfalone.collection.StandAlonCollection" name="bean1">
+   		<property name="friends" ref="friendList" />
+   		<property name="phoneNo" ref="phone" />
+   		<property name="age" ref="ageOfFriends" />
+   		<property name="props" ref="mysql" />
+   </bean>
+   		  
+</beans>

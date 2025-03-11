@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <bean class="c.com.example.property.injection.reference.B" name="obOfB" p:varFrom="Variable From B"/>
+    
+    <!-- Using ref tag -->
+    <bean class="c.com.example.property.injection.reference.A" name="obOfA0">
+    	<property name="varFrom" value="Var From obOfA0" />
+    	<property name="objectOfB" >
+    		<ref bean="obOfB" />
+    	</property>
+    </bean>
+    
+    <!-- Using ref attribute -->
+    <bean class="c.com.example.property.injection.reference.A" name="obOfA">    
+    	<property name="varFrom" value="Var From obOfA"/>
+    	<property name="objectOfB" ref="obOfB" />
+    </bean>
+    
+    <!-- Using P schema  -->
+    <bean class="c.com.example.property.injection.reference.A" name="obOfA2" 
+    	p:varFrom="Var From A2"
+    	p:objectOfB-ref="obOfB"/>
+    
+</beans>
