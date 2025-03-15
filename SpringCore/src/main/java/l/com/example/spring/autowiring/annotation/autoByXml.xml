@@ -10,11 +10,11 @@
 	
 	<context:annotation-config />
 	
-	<bean class="l.com.example.spring.autowiring.annotation.Address" name="address1">
+	<bean class="l.com.example.spring.autowiring.annotation.Address" id="address1">
 		<property name="add" value="Kalyan" />
 	</bean>
 	
-	<bean class="l.com.example.spring.autowiring.annotation.Address" name="address2">
+	<bean class="l.com.example.spring.autowiring.annotation.Address" id="address2">
 		<property name="add" value="Dombivali" />
 	</bean>
 	

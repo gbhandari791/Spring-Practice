@@ -8,22 +8,22 @@
     http://www.springframework.org/schema/context 
     http://www.springframework.org/schema/context/spring-context.xsd">
 	
-	<bean class="k.com.example.spring.autowiring.xml.Address" name="address1">
+	<bean class="k.com.example.spring.autowiring.xml.Address" id="address1">
 		<property name="add" value="Kalyan" />
 	</bean>
 	
-	<bean class="k.com.example.spring.autowiring.xml.Address" name="address">
+	<bean class="k.com.example.spring.autowiring.xml.Address" id="address">
 		<property name="add" value="Dombivali" />
 	</bean>
 	
 	<!-- Autowiring by using byName -->
-	<!-- <bean class="k.com.example.spring.autowiring.xml.Emp" name="emp" autowire="byName" /> -->
+	<bean class="k.com.example.spring.autowiring.xml.Emp" name="emp" autowire="byName" />
 	
 	<!-- Autowiring using byType -->
 	<!-- <bean class="k.com.example.spring.autowiring.xml.Emp" name="emp" autowire="byType" /> -->
 	
 	<!-- Autowiring by constructor -->
-	<bean class="k.com.example.spring.autowiring.xml.Emp" name="emp" autowire="constructor" />
+	<!-- <bean class="k.com.example.spring.autowiring.xml.Emp" name="emp" autowire="constructor" /> -->
 	
 	
 </beans>

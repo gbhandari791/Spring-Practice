@@ -7,7 +7,7 @@ public class Test {
 
 	public static void main(String[] args) {
 		
-		ApplicationContext context = new ClassPathXmlApplicationContext("com/example/spring/stanfalone/collection/aloncoll.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("m/com/example/spring/stanfalone/collection/aloncoll.xml");
 		StandAlonCollection alonCollection = context.getBean("bean1", StandAlonCollection.class);
 		System.err.println(alonCollection.getFriends());
 		System.out.println(alonCollection.getFriends().getClass().getName());
