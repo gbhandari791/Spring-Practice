@@ -23,6 +23,9 @@
            		<property name="suffix" value=".jsp" />
            </bean>
            
+           <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" >           
+           </bean>
+           
            <!-- ORM configuration started -->
            
            <tx:annotation-driven />
