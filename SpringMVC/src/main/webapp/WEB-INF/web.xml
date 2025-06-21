@@ -10,17 +10,17 @@
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 
 		<!-- Use JavaConfig rather than XML -->
-		<!-- <init-param>
+		<init-param>
 			<param-name>contextClass</param-name>
 			<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
 		</init-param>
 
-		Point to your @Configuration class
+		<!-- Point to your @Configuration class -->
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>spring.mvc.config.SpringMVCConfig</param-value>
 		</init-param>
-		<load-on-startup>1</load-on-startup> -->
+		<load-on-startup>1</load-on-startup>
 		
 	</servlet>
 

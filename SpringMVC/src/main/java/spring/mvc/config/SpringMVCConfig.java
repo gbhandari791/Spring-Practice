@@ -14,11 +14,13 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import spring.mvc.controller.InterceptorExamleImpl;
 import spring.mvc.entity.User;
 
 @Configuration
@@ -28,6 +30,14 @@ import spring.mvc.entity.User;
 public class SpringMVCConfig implements WebMvcConfigurer {
 
 	
+	
+	
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		
+		registry.addInterceptor(new InterceptorExamleImpl()).addPathPatterns("/processIntercepterExamle");
+	}
+
 	@Bean
 	public InternalResourceViewResolver viewResolver() {
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
@@ -42,8 +52,8 @@ public class SpringMVCConfig implements WebMvcConfigurer {
 		resourceHandler.addResourceLocations("/WEB-INF/resources/");
 	}
 
-	@Bean
-	public CommonsMultipartResolver getMultipartResolver() {
+	@Bean(name = "multipartResolver")
+	public CommonsMultipartResolver multipartResolver() {
 		CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
 		return multipartResolver;
 	}
@@ -90,4 +100,7 @@ public class SpringMVCConfig implements WebMvcConfigurer {
 		transactionManager.setSessionFactory(getSessionFactory().getObject());
 		return transactionManager;
 	}
+	
+	
+
 }
